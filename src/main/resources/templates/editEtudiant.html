@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Liste des Etudiants</title>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+                      th:href="@{/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+  <h2>Remplire les Informations Suivante</h2>
+  <br>
+  <form th:action="@{updateEtudiant}" class="form-horizontal" method="POST" th:object="${etudiant}">
+     <div class="form-group">
+      <label class="control-label col-sm-2" for="email">ID</label>
+      <div class="col-sm-10">
+        <input type="text" th:field="*{id}"  class="form-control"  placeholder="Enter Name" name="nom">
+        <span class="text-danger" th:errors="*{nom}"></span>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Nom</label>
+      <div class="col-sm-10">
+        <input type="text" th:field="*{nom}"  class="form-control"  placeholder="Enter Name" name="nom">
+        <span class="text-danger" th:errors="*{nom}"></span>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Date de Naissance</label>
+      <div class="col-sm-10">          
+        <input type="date" th:field="*{dateNaissance}"class="form-control"  placeholder="Enter Date de Naissance" name="dateNaissance">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd"></label>
+      <div class="col-sm-10">          
+        <input type="email"  th:field="*{email}" class="form-control"  placeholder="Enter email" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">telephone</label>
+      <div class="col-sm-10">          
+        <input type="text"  th:field="*{tel}" class="form-control"  placeholder="Enter telehopne" name="tel">
+      </div>
+    </div>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">modifier</button>
+        <button type="reset" class="btn btn-danger">annuler</button>
+             
+      </div>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
